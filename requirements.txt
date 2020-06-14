@@ -20,3 +20,4 @@ gsearch
 pySmartDL
 telegraph
 coffeehouse
+speedtest-cli

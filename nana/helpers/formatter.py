@@ -63,3 +63,17 @@ def convert_size(size_bytes):
 	p = math.pow(1024, i)
 	s = round(size_bytes / p, 2)
 	return "%s %s" % (s, size_name[i])
+
+def speed_convert(size):
+	power = 2**10
+	zero = 0
+	units = {
+		0: '',
+		1: 'Kb/s',
+		2: 'Mb/s',
+		3: 'Gb/s',
+		4: 'Tb/s'}
+	while size > power:
+		size /= power
+		zero += 1
+	return f"{round(size, 2)} {units[zero]}"
