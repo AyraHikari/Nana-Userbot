@@ -41,7 +41,6 @@ RUN apk add --no-cache --update \
     py-sqlalchemy \
     py-tz \
     py3-aiohttp \
-    python-dev \
     openssl \
     pv \
     jq \
