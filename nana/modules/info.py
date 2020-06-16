@@ -4,11 +4,10 @@ import os
 import pyrogram
 
 from platform import python_version, uname
-from nana import app, Command, DB_AVAIABLE, USERBOT_VERSION, BotUsername
+from nana import app, Command, DB_AVAIABLE, USERBOT_VERSION, ASSISTANT_VERSION, Owner
 from nana.helpers.parser import mention_markdown
 
 from pyrogram import Filters
-
 
 @app.on_message(Filters.user("self") & Filters.command(["me"], Command))
 async def get_myself_client(client, message):
@@ -115,3 +114,48 @@ async def version(client, message):
 	text += "-> Userbot: `Running (v{})`\n".format(USERBOT_VERSION)
 	text += "-> Python: `{}`\n".format(python_version())
 	text += "-> Pyrogram: `{}`\n".format(pyrogram.__version__)
+
+@app.on_message(Filters.user("self") & (Filters.command(["info"], Command)))
+async def user_info(client, message):
+	chat = message.chat
+	user = message.from_user
+	if message.reply_to_message:
+		if message.reply_to_message.forward_from:
+			user_id = message.reply_to_message.from_user.id
+			user = await client.get_users(user_id)
+			user_name = mention_markdown(message.reply_to_message.forward_from.id, message.reply_to_message.forward_from.first_name)
+		else:
+			user_id = message.reply_to_message.from_user.id
+			user = await client.get_users(user_id)
+			user_name = mention_markdown(message.reply_to_message.from_user.id, message.reply_to_message.from_user.first_name)
+	elif len(message.text.split()) >= 2 and (message.text.split(None, 1)[1].isdigit() or message.text.split(None, 1)[1][0] == "@"):
+		user_id = message.text.split()[1]
+		user = await client.get_users(user_id)
+		user_name = mention_markdown(user.id, user.first_name)
+	else:
+		user_id = message.from_user.id
+		user = await client.get_users(user_id)
+		user_name = mention_markdown(message.from_user.id, message.from_user.first_name)
+	
+	common_group = await app.get_common_chats(user_id)
+
+	text =  "**User info:**\n"
+	text +=	"First Name: {}\n".format(user.first_name)
+	text +=	"Last Name: {}\n".format(user.last_name) if user.last_name else ""
+	text +=	"User ID: `{}`\n".format(user.id)
+	text +=	"Username: @{}\n".format(user.username) if user.username else ""
+	text +=	"User Type: {}\n".format("Bot" if user.is_bot else "Human")
+	text +=	"User link: [link](tg://user?id={})\n".format(user.id)
+	if user.id == int(Owner):
+		text +=	"\n__This is myself__\n"
+	elif user.is_verified:
+		text +=	"\n__This account is verified__\n"
+	# elif user.is_contact:
+	# 	text +=	"\n__This user is on my contact__\n"
+	elif user.is_scam:
+		text +=	"\n__This account is labeled as SCAM__\n"
+	elif user.is_deleted:
+		text +=	"\n__This account has been deleted__\n"
+	if common_group:
+		text += "\n`{}` groups in common".format(len(common_group))
+	await message.edit(text)
