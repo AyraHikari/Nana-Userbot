@@ -197,7 +197,8 @@ async def get_self():
 	else:
 		OwnerName = getself.first_name
 	OwnerUsername = getself.username
-	print("Welcome: {}".format(OwnerName))
+	if not TEST_DEVELOP:
+		print("Welcome: {}".format(OwnerName))
 
 BASE = declarative_base()
 SESSION = mulaisql()
