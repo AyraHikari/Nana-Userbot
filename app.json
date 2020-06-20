@@ -37,15 +37,6 @@
       "description": "Prefix command, separate by space.",
       "value": ". ;"
     },
-    "AdminSettings": {
-      "description": "Fill your telegram id, or secondary telegram id if needs, separate by space",
-      "value": ""
-    },
-    "ASSISTANT_WORKER": {
-      "description": "(optional) Worker for Assistant bot",
-      "value": "2",
-      "required": false
-    },
     "NANA_WORKER": {
       "description": "(optional) Worker for User bot",
       "value": "8",
@@ -88,19 +79,7 @@
       "description": "(optional) Fill if you dont want to load that module, else leave it blank",
       "required": false
     },
-    "ASSISTANT_LOAD": {
-      "description": "(optional) Fill if you want to load that module only, else leave it blank",
-      "required": false
-    },
-    "ASSISTANT_NOLOAD": {
-      "description": "(optional) Fill if you dont want to load that module, else leave it blank",
-      "required": false
-    },
     "USERBOT_SESSION": {
-      "description": "[REQUIRED] For make a session: https://github.com/AyraHikari/pyrogram-session-maker",
-      "required": true
-    },
-    "ASSISTANT_SESSION": {
       "description": "[REQUIRED] For make a session: https://github.com/AyraHikari/pyrogram-session-maker",
       "required": true
     },

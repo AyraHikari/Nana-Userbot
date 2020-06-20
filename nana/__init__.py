@@ -29,7 +29,7 @@ else:
 	try:
 		from nana.config import Development as Config
 	except ModuleNotFoundError:
-		logging.basicConfig(level=logging.INFO)
+		logging.basicConfig(level=logging.WARNING)
 		log = logging.getLogger()
 		log.error("You need to place config.py in nana dir!")
 		quit(1)
@@ -40,7 +40,7 @@ if TEST_DEVELOP:
 	log = logging.getLogger()
 	log.warning("Testing mode activated!")
 else:
-	logging.basicConfig(level=logging.INFO)
+	logging.basicConfig(level=logging.WARNING)
 	log = logging.getLogger()
 
 # if version < 3.6, stop bot.
@@ -48,7 +48,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     log.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
     quit(1)
 
-USERBOT_VERSION = "0.4.2 (Simple edition)"
+USERBOT_VERSION = "0.4.3 (Simple edition)"
 
 OFFICIAL_BRANCH = ('master', 'dev')
 REPOSITORY = "https://github.com/AyraHikari/Nana-Userbot"
@@ -197,6 +197,7 @@ async def get_self():
 	else:
 		OwnerName = getself.first_name
 	OwnerUsername = getself.username
+	print("Welcome: {}".format(OwnerName))
 
 BASE = declarative_base()
 SESSION = mulaisql()

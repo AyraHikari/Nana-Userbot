@@ -65,9 +65,11 @@ async def reinitial():
 
 async def start_bot():
 	# sys.excepthook = except_hook
-	print("----- Checking user and bot... -----")
+	# print("----- Checking user and bot... -----")
+	print("Checking userbot...")
 	await reinitial()
-	print("----------- Check done! ------------")
+	print("Check done, please wait...")
+	# print("----------- Check done! ------------")
 	# Assistant bot
 	# Nana userbot
 	await app.start()
@@ -77,8 +79,9 @@ async def start_bot():
 			imported_module.__MODULE__ = imported_module.__MODULE__
 	log.info("-----------------------")
 	log.info("Userbot modules: " + str(ALL_MODULES))
+	print("Module was loaded: " + ", ".join(ALL_MODULES))
 	log.info("-----------------------")
-	log.info("Bot run successfully!")
+	log.warning("──「 Bot run successfully! 」──")
 	if TEST_DEVELOP:
 		log.warning("Test is passed!")
 	else:
