@@ -22,7 +22,6 @@ RUN apk add --no-cache --update \
     jpeg-dev \
     libffi-dev \
     libpq \
-    libpq-dev \
     libwebp-dev \
     libxml2 \
     libxml2-dev \
@@ -53,6 +52,9 @@ RUN apk add --no-cache --update \
     sqlite-dev \
     sudo \
     zlib-dev
+
+# Installing libpq-dev before py-psycopg2
+RUN sudo apt install libpq-dev
 
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/main py-psycopg2
 
