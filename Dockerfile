@@ -70,7 +70,7 @@ RUN pip3 install --upgrade pip setuptools
 
 # Copy Python Requirements to /app
 
-RUN git clone https://github.com/AyraHikari/Nana-TgBot nana
+RUN git clone https://github.com/AyraHikari/Nana-Userbot nana
 WORKDIR nana
 
 ENV PATH="/home/userbot/bin:$PATH"
