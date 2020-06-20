@@ -113,3 +113,5 @@ nana/modules/pm.py
 nana/modules/database/pm_db.py
 nana/modules/privates.py
 nana/cache/*
+nana/helpers/parcels.py
+nana/modules/parcels.py
