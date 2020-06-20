@@ -54,7 +54,7 @@ RUN apk add --no-cache --update \
     zlib-dev
 
 # Installing libpq-dev before py-psycopg2
-RUN sudo apt install libpq-dev
+RUN sudo apt-get install libpq-dev
 
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/main py-psycopg2
 
