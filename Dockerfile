@@ -22,6 +22,7 @@ RUN apk add --no-cache --update \
     jpeg-dev \
     libffi-dev \
     libpq \
+    libpq-dev \
     libwebp-dev \
     libxml2 \
     libxml2-dev \

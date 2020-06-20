@@ -12,8 +12,8 @@
     "productivity",
     "testing"
   ],
-  "repository": "https://github.com/AyraHikari/Nana-TgBot",
-  "website": "https://github.com/AyraHikari/Nana-TgBot/wiki",
+  "repository": "https://github.com/AyraHikari/Nana-Userbot",
+  "website": "https://github.com/AyraHikari/Wiki-Nana-TgBot/wiki",
   "success_url": "https://t.me/AyraSupport",
   "stack": "container",
   "env": {
@@ -30,15 +30,15 @@
       "value": ""
     },
     "Owner": {
-      "description": "Go to some bot, and check your id there. Ex. Emilia or Rose.",
+      "description": "Go to some bot, and check your id there. Ex. @EmiliaHikariBot or @MissRose_bot.",
       "value": ""
     },
     "Command": {
       "description": "Prefix command, separate by space.",
-      "value": "! ."
+      "value": ". ;"
     },
     "AdminSettings": {
-      "description": "Fill your telegram id",
+      "description": "Fill your telegram id, or secondary telegram id if needs, separate by space",
       "value": ""
     },
     "ASSISTANT_WORKER": {
@@ -97,16 +97,20 @@
       "required": false
     },
     "USERBOT_SESSION": {
-      "description": "[REQUIRED] For make a session: https://github.com/AyraHikari/pyrogram-session-maker"
+      "description": "[REQUIRED] For make a session: https://github.com/AyraHikari/pyrogram-session-maker",
+      "required": true
     },
     "ASSISTANT_SESSION": {
-      "description": "[REQUIRED] For make a session: https://github.com/AyraHikari/pyrogram-session-maker"
+      "description": "[REQUIRED] For make a session: https://github.com/AyraHikari/pyrogram-session-maker",
+      "required": true
     },
     "GOOGLE_API_TEXT": {
-      "description": "(optional) Open client_secrets.json from your google drive API, copy all then paste in here"
+      "description": "(optional) Open client_secrets.json from your google drive API, copy all then paste in here",
+      "required": false
     },
     "BITLY_API": {
-      "description": "(optional) Fill your Bitly API, register here: https://dev.bitly.com/my_apps.html"
+      "description": "(optional) Fill your Bitly API, register here: https://dev.bitly.com/my_apps.html",
+      "required": false
     }
   },
   "addons": [

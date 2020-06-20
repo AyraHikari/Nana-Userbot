@@ -29,6 +29,6 @@ Currently work fine perfectly, but some features may give you error. Please repo
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AyraHikari/Nana-Userbot)
 
-See our wikis to get [Installation Guide](https://github.com/AyraHikari/Nana-Userbot/wiki).
+See our wikis to get [Installation Guide](https://github.com/AyraHikari/Wiki-Nana-Userbot/wiki).
 
 If you some problems, please come join and ask on our Community!
