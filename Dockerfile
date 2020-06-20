@@ -1,12 +1,12 @@
 # We're using Alpine stable
-FROM alpine:edge
+FROM python:3.7-alpine
 
 #
 # We have to uncomment Community repo for some packages
 #
-RUN sed -e 's;^#http\(.*\)/v3.9/community;http\1/v3.9/community;g' -i /etc/apk/repositories
+# RUN sed -e 's;^#http\(.*\)/v3.9/community;http\1/v3.9/community;g' -i /etc/apk/repositories
 
-# Installing Python
+# Installing requirements
 RUN apk add --no-cache --update \
     bash \
     build-base \
@@ -17,9 +17,6 @@ RUN apk add --no-cache --update \
     git \
     sudo \
     util-linux \
-    chromium \
-    chromium-chromedriver \
-    jpeg-dev \
     libffi-dev \
     libpq \
     libwebp-dev \
@@ -50,13 +47,24 @@ RUN apk add --no-cache --update \
     readline-dev \
     sqlite \
     sqlite-dev \
-    sudo \
-    zlib-dev
+    sudo
+
+# Installing psycopg2 dependencies
+RUN apk add --no-cache --update build-deps gcc python3-dev musl-dev
+
+# Installing postgresql
+RUN apk add --no-cache --update postgresql postgresql-client postgresql-dev
+
+# Installing pillow dependencies
+RUN apk add --no-cache --update jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
+
+# Installing chromium
+RUN apk add --no-cache --update chromium chromium-chromedriver
 
 # Installing libpq-dev before py-psycopg2
-RUN sudo apt-get install libpq-dev
+RUN apk add --no-cache --update libpq-dev
 
-RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/main py-psycopg2
+# RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/main py-psycopg2
 
 RUN pip3 install --upgrade pip setuptools
 
