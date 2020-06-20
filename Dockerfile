@@ -50,19 +50,19 @@ RUN apk add --no-cache --update \
     sudo
 
 # Installing psycopg2 dependencies
-RUN apk add --no-cache --update build-deps gcc python3-dev musl-dev
+RUN apk add --no-cache --update gcc python3-dev
 
 # Installing postgresql
 RUN apk add --no-cache --update postgresql postgresql-client postgresql-dev
 
 # Installing pillow dependencies
-RUN apk add --no-cache --update jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
+RUN apk add --no-cache --update jpeg-dev zlib-dev
 
 # Installing chromium
 RUN apk add --no-cache --update chromium chromium-chromedriver
 
 # Installing libpq-dev before py-psycopg2
-RUN apk add --no-cache --update libpq-dev
+# RUN apk add --no-cache --update libpq-dev
 
 # RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/main py-psycopg2
 
