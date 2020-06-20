@@ -29,7 +29,7 @@ mainmenu () {
 	elif [ "$mainmenuinput" = "x" ] || [ "$mainmenuinput" = "X" ]; then
 		quitprogram
 	else
-		echo -e "\nYou have entered an invallid selection!"
+		echo -e "\nYou have entered an invalid selection!"
 		echo -e "Please try again!"
 		echo -e "Press any key to continue..."
 		read -n 1
@@ -52,7 +52,7 @@ install_nana () {
 	#elif [ "$install_nana_input" = "3" ]; then
 	#	install_nana_win
 	else
-		echo -e "\nYou have entered an invallid selection!"
+		echo -e "\nYou have entered an invalid selection!"
 		echo -e "Please try again!"
 		echo -e "Press any key to continue..."
 		read -n 1
